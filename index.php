@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 require_once('vendor/autoload.php');
 
 //If you start a session, do if AFTER
-//requiring the autoload
+// the autoload
 session_start();
 
 //Create an instance of the Base class
@@ -25,7 +25,7 @@ $f3->route('GET /',
         $pet1 = new Pet();
         $f3->set('pet1', $pet1);
 
-        $pet2 = new Pet("Fido", "pink");
+        $pet2 = new Pet("Timmy", "pink");
         $f3->set('pet2', $pet2);
 
         $pet3 = new Pet("Rufus");
@@ -34,6 +34,14 @@ $f3->route('GET /',
         $template = new Template();
         echo $template->render('views/my-pets.html');
     });
+
+$f3->route('GET /test',
+    function($f3) {
+
+        $template = new Template();
+        echo $template->render('views/my-pets.html');
+    }
+);
 
 //Run fat free
 $f3->run();
