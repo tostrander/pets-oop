@@ -20,10 +20,14 @@ $f3->route('GET /',
 
         $pet1 = new Pet("Fido", "pink");
         $pet2 = new Pet();
+        $pet2->setName("Nick");
+        $dog1 = new Dog("Fifi");
+
         //var_dump($pet1);
 
         $f3->set('pet1', $pet1);
         $f3->set('pet2', $pet2);
+        $f3->set('dog1', $dog1);
 
         $view = new Template();
         echo $view->render('views/my-pets.html');
